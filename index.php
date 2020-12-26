@@ -1,5 +1,7 @@
 <?php
+  // set default timezone to Sydney, Australia
   date_default_timezone_set('Australia/Sydney');
+  
   // get the date
   $date = getdate();
 ?>
