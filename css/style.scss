@@ -1,0 +1,32 @@
+html > body {
+  margin: 0;
+  padding: 0;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: auto;
+}
+
+header {
+  grid-column: 1 / 8;
+}
+
+.dayname {
+  text-align: center;
+}
+
+.day {
+  text-align: left;
+}
+
+.currentday {
+  background-color: #00FF00;
+  text-align: left;
+}
+
+footer {
+  grid-column: 1 / 8;
+}
