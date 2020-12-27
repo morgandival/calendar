@@ -6,12 +6,21 @@ html > body {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(4em, 1fr));
   grid-template-rows: auto;
 }
 
 header {
   grid-column: 1 / 8;
+  padding: 10px;
+}
+
+.month {
+  text-align: center;
+}
+
+.month-spacer {
+  grid-column: span 3;
 }
 
 .dayname {
@@ -19,7 +28,12 @@ header {
 }
 
 .day {
+  min-height: 100px;
   text-align: left;
+}
+
+h4 {
+  margin: 0.25em;
 }
 
 .currentday {
