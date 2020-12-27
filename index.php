@@ -32,7 +32,7 @@
       <a href="?m=<?php echo $prevmonth; ?>&y=<?php if ($prevmonth == 12) { echo $year - 1; } else { echo $year; } ?>"><h3>Prev</h3></a>
     </div>
     <div class="month">
-      <h2><?php echo date('F').' '.date('Y'); ?><h2>
+      <h2><?php echo date('F', mktime(0,0,0,$month)).' '.$year; ?><h2>
     </div>
     <div class="month-nav">
       <a href="?m=<?php echo $nextmonth; ?>&y=<?php if ($nextmonth == 1) { echo $year + 1; } else { echo $year; } ?>"><h3>Next</h3></a>
