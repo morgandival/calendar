@@ -14,7 +14,7 @@
     $year = date('Y');
   }
 
-  
+  // Set previous and next month values
   $prevmonth = date('n', mktime(0,0,0,$month - 1));
   $nextmonth = date('n', mktime(0,0,0,$month + 1));
 ?>
@@ -46,11 +46,11 @@
       }
 
       // get number of days for current month
-      $days = date('t');
+      $days = date('t', mktime(0,0,0,$month));
 
       // get name of first day of month
-      $firstday = date('l', strtotime('first day of this month'));
-      
+      $firstday = date('l', mktime(0,0,0,$month,1,$year));
+
       // lookup key for corresponding day name
       $key = array_keys($daynames, $firstday);
 
@@ -61,7 +61,7 @@
       // display days of month as grid items
       while ($x <= $days) {
         if ($x > 0) {
-          if ($x == date('j')) {
+          if ($x == date('j') && $month == date('n') && $year == date('Y')) {
             echo '<div class="currentday"><h4>'.$x.'</h4></div>';
           } else {
             echo '<div class="day"><h4>'.$x.'</h4></div>';
@@ -76,14 +76,14 @@
       // Add empty spaces to end of calendar grid section
       $y = 1;
 
-      while ($x <= (35-$key['0'])) {
+      while ($x <= (42-$key['0'])) {
         echo '<div class="empty"><h4>'.$y.'</h4></div>';
         $x++;
         $y++;
       }
     ?>
     <footer>
-      <p>Footer goes here</p>
+      <p><a href="?m=<?php echo date('n'); ?>&y=<?php echo date('Y'); ?>">Go to today</a><p>
     </footer>
   </body>
 
