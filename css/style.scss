@@ -20,8 +20,13 @@ header {
   text-align: center;
 }
 
+.month-nav {
+  margin: auto;
+  text-align: center;
+}
+
 .month-spacer {
-  grid-column: span 3;
+  grid-column: span 2;
 }
 
 .dayname {
@@ -39,15 +44,16 @@ header {
   color: #878287;
 }
 
+.currentday {
+  background-color: #7BE0D6;
+  text-align: left;
+}
+
 h4 {
   margin: 0.25em;
 }
 
-.currentday {
-  background-color: #00FF00;
-  text-align: left;
-}
-
 footer {
   grid-column: 1 / 8;
+  padding: 0 20px;
 }

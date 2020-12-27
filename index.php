@@ -1,9 +1,10 @@
 <?php
   // set default timezone to Sydney, Australia
   date_default_timezone_set('Australia/Sydney');
-  
-  // get the date
-  $date = getdate();
+
+  if (!isset($_GET['month'] )) {
+    $_GET['month'] = date('m');
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,10 +16,11 @@
       <h1>Calendar</h1>
     </header>
     <div class="month-spacer"></div>
-    <div class="month"><h2><?php echo $date['month']; ?><h2></div>
+    <div class="month-nav"><a href="?month=<?php echo date('m', mktime(0,0,0, date('n') - 1)); ?>"><h3>Previous</h3></a></div>
+    <div class="month"><h2><?php echo date('F').' '.date('Y'); ?><h2></div>
+    <div class="month-nav"><a href="?month=<?php echo date('m', mktime(0,0,0, date('n') + 1)); ?>"><h3>Next</h3></a></div>
     <div class="month-spacer"></div>
     <?php
-
       // display day labels
       $daynames = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
       foreach ($daynames as $item) {
@@ -41,7 +43,7 @@
       // display days of month as grid items
       while ($x <= $days) {
         if ($x > 0) {
-          if ($x == $date['mday']) {
+          if ($x == date('j')) {
             echo '<div class="currentday"><h4>'.$x.'</h4></div>';
           } else {
             echo '<div class="day"><h4>'.$x.'</h4></div>';
