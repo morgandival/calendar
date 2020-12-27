@@ -6,7 +6,7 @@ html > body {
 
 .container {
   display: grid;
-  grid-template-columns: repeat(7, minmax(4em, 1fr));
+  grid-template-columns: repeat(7, minmax(6em, 1fr));
   grid-template-rows: auto;
 }
 
@@ -28,7 +28,7 @@ header {
 }
 
 .day {
-  min-height: 100px;
+  min-height: 6em;
   text-align: left;
 }
 
