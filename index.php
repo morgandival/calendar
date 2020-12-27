@@ -2,9 +2,21 @@
   // set default timezone to Sydney, Australia
   date_default_timezone_set('Australia/Sydney');
 
-  if (!isset($_GET['month'] )) {
-    $_GET['month'] = date('m');
+  if (isset($_GET['m'])) {
+    $month = $_GET['m'];
+  } else {
+    $month = date('n');
   }
+
+  if (isset($_GET['y'])) {
+    $year = $_GET['y'];
+  } else {
+    $year = date('Y');
+  }
+
+  
+  $prevmonth = date('n', mktime(0,0,0,$month - 1));
+  $nextmonth = date('n', mktime(0,0,0,$month + 1));
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,9 +28,15 @@
       <h1>Calendar</h1>
     </header>
     <div class="month-spacer"></div>
-    <div class="month-nav"><a href="?month=<?php echo date('m', mktime(0,0,0, date('n') - 1)); ?>"><h3>Previous</h3></a></div>
-    <div class="month"><h2><?php echo date('F').' '.date('Y'); ?><h2></div>
-    <div class="month-nav"><a href="?month=<?php echo date('m', mktime(0,0,0, date('n') + 1)); ?>"><h3>Next</h3></a></div>
+    <div class="month-nav">
+      <a href="?m=<?php echo $prevmonth; ?>&y=<?php if ($prevmonth == 12) { echo $year - 1; } else { echo $year; } ?>"><h3>Prev</h3></a>
+    </div>
+    <div class="month">
+      <h2><?php echo date('F').' '.date('Y'); ?><h2>
+    </div>
+    <div class="month-nav">
+      <a href="?m=<?php echo $nextmonth; ?>&y=<?php if ($nextmonth == 1) { echo $year + 1; } else { echo $year; } ?>"><h3>Next</h3></a>
+    </div>
     <div class="month-spacer"></div>
     <?php
       // display day labels
