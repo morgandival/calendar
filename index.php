@@ -36,6 +36,7 @@
 
       // initiliase counter to offset grid start day
       $x = 1 - $key['0'];
+      $y = date('t', mktime(0,0,0, date('n') - 1)) - $key['0'];
 
       // display days of month as grid items
       while ($x <= $days) {
@@ -46,9 +47,19 @@
             echo '<div class="day"><h4>'.$x.'</h4></div>';
           }  
         } else {
-          echo '<div class="empty"></div>';
+          $y++;
+          echo '<div class="empty"><h4>'.$y.'</h4></div>';
         }
         $x++;
+      }
+
+      // Add empty spaces to end of calendar grid section
+      $y = 1;
+
+      while ($x <= (35-$key['0'])) {
+        echo '<div class="empty"><h4>'.$y.'</h4></div>';
+        $x++;
+        $y++;
       }
     ?>
     <footer>
