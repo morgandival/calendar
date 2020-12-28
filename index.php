@@ -25,7 +25,36 @@
   </head>
   <body class="container">
     <header>
-      <h1>Calendar</h1>
+      <h1 class="title"><a href="http://calendar.localhost">Calendar</a></h1>
+      <form class="dateform" method="get">
+        <fieldset>
+          <label for="monthlist">Month:</label>
+          <select id="monthlist" name="m">
+            <?php
+              // create loop counter
+              $x = 1;
+
+              // loop through output options
+              while ($x <= 12) {
+                // get month name
+                $m = date('F', mktime(0,0,0,$x));
+
+                // if current month, set as selected option
+                if ($x == $month) {
+                  echo '<option selected="selected" value="'.$x.'">'.$m.'</option>';
+                } else {
+                  echo '<option value="'.$x.'">'.$m.'</option>';
+                }
+
+                $x++;
+              }
+            ?>
+          </select>
+          <label for="year">Year:</label>
+          <input id="year" name="y" type="text" pattern="[0-9]{4}" value="<?php echo $year; ?>" placeholder="<?php echo $year; ?>" size="10">
+          <input type="submit" value="Go to Date">
+        </fieldset>
+      </form>
     </header>
     <div class="month-spacer"></div>
     <div class="month-nav">
