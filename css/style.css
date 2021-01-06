@@ -11,7 +11,7 @@ html > body {
       grid-template-columns: repeat(7, minmax(6em, 1fr));
   -ms-grid-rows: auto;
       grid-template-rows: auto;
-  grid-gap: 2px;
+  margin: 10px;
 }
 
 header {
@@ -73,6 +73,8 @@ header {
 
 .day {
   background-color: #B9B6B8;
+  border-radius: 10px;
+  margin: 5px;
   min-height: 6em;
   text-align: left;
 }
@@ -81,20 +83,25 @@ header {
   background-color: #E3DFFF;
 }
 
-.empty {
-  background-color: #EBEAEB;
-  color: #878287;
-  min-height: 6em;
-  text-align: left;
-}
-
 .currentday {
   background-color: #7BE0D6;
-  text-align: left;
 }
 
 .currentday:hover {
   background-color: #E3DFFF;
+}
+
+.selectedday {
+  background-color: #FF0000;
+}
+
+.selectedday:hover {
+  background-color: #CC0000;
+}
+
+.othermonth {
+  background-color: #EBEAEB;
+  color: #878287;
 }
 
 h4 {

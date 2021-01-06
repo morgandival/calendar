@@ -91,13 +91,13 @@
       while ($i <= $days) {
         if ($i > 0) {
           if ($i == date('j') && $month == date('n') && $year == date('Y')) {
-            echo '<div class="currentday"><h4>'.$i.'</h4></div>';
+            echo '<div id='.$i.' class="day currentday" onclick="selectday('.$i.')"><h4>'.$i.'</h4></div>';
           } else {
-            echo '<div class="day"><h4>'.$i.'</h4></div>';
+            echo '<div id='.$i.' class="day" onclick="selectday('.$i.')"><h4>'.$i.'</h4></div>';
           }  
         } else {
           $n++;
-          echo '<div class="empty"><h4>'.$n.'</h4></div>';
+          echo '<div class="day othermonth"><h4>'.$n.'</h4></div>';
         }
         $i++;
       }
@@ -108,14 +108,14 @@
 
       // loop until 42 grid items
       while ($i <= (42-$key['0'])) {
-        echo '<div class="empty"><h4>'.$n.'</h4></div>';
+        echo '<div class="day othermonth"><h4>'.$n.'</h4></div>';
         $i++;
         $n++;
       }
     ?>
     <footer>
       <p><a href="?m=<?php echo date('n'); ?>&y=<?php echo date('Y'); ?>">Go to today</a><p>
+      <script src="js/selectday.js"></script>
     </footer>
   </body>
-
 </html>
