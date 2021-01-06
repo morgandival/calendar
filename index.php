@@ -32,21 +32,21 @@
           <select id="monthlist" name="m">
             <?php
               // create loop counter
-              $x = 1;
+              $i = 1;
 
               // loop through output options
-              while ($x <= 12) {
+              while ($i <= 12) {
                 // get month name
-                $m = date('F', mktime(0,0,0,$x));
+                $m = date('F', mktime(0,0,0,$i));
 
                 // if current month, set as selected option
-                if ($x == $month) {
-                  echo '<option selected="selected" value="'.$x.'">'.$m.'</option>';
+                if ($i == $month) {
+                  echo '<option selected="selected" value="'.$i.'">'.$m.'</option>';
                 } else {
-                  echo '<option value="'.$x.'">'.$m.'</option>';
+                  echo '<option value="'.$i.'">'.$m.'</option>';
                 }
 
-                $x++;
+                $i++;
               }
             ?>
           </select>
@@ -84,31 +84,33 @@
       $key = array_keys($daynames, $firstday);
 
       // initiliase counter to offset grid start day
-      $x = 1 - $key['0'];
-      $y = date('t', mktime(0,0,0, date('n') - 1)) - $key['0'];
+      $i = 1 - $key['0'];
+      $n = date('t', mktime(0,0,0, date('n') - 1)) - $key['0'];
 
       // display days of month as grid items
-      while ($x <= $days) {
-        if ($x > 0) {
-          if ($x == date('j') && $month == date('n') && $year == date('Y')) {
-            echo '<div class="currentday"><h4>'.$x.'</h4></div>';
+      while ($i <= $days) {
+        if ($i > 0) {
+          if ($i == date('j') && $month == date('n') && $year == date('Y')) {
+            echo '<div class="currentday"><h4>'.$i.'</h4></div>';
           } else {
-            echo '<div class="day"><h4>'.$x.'</h4></div>';
+            echo '<div class="day"><h4>'.$i.'</h4></div>';
           }  
         } else {
-          $y++;
-          echo '<div class="empty"><h4>'.$y.'</h4></div>';
+          $n++;
+          echo '<div class="empty"><h4>'.$n.'</h4></div>';
         }
-        $x++;
+        $i++;
       }
 
       // Add empty spaces to end of calendar grid section
-      $y = 1;
+      // initialise counter
+      $n = 1;
 
-      while ($x <= (42-$key['0'])) {
-        echo '<div class="empty"><h4>'.$y.'</h4></div>';
-        $x++;
-        $y++;
+      // loop until 42 grid items
+      while ($i <= (42-$key['0'])) {
+        echo '<div class="empty"><h4>'.$n.'</h4></div>';
+        $i++;
+        $n++;
       }
     ?>
     <footer>
