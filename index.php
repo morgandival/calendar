@@ -22,6 +22,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/selectday.js"></script>
   </head>
   <body class="container">
     <header>
@@ -115,7 +116,6 @@
     ?>
     <footer>
       <p><a href="?m=<?php echo date('n'); ?>&y=<?php echo date('Y'); ?>">Go to today</a><p>
-      <script src="js/selectday.js"></script>
     </footer>
   </body>
 </html>
