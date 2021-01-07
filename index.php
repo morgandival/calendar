@@ -22,7 +22,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/selectday.js"></script>
+    <script src="js/scripts.js"></script>
   </head>
   <body class="container">
     <header>
