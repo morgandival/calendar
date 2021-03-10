@@ -1,2 +1,2 @@
 # calendar
-A dynamically generated calendar using HTML, CSS, and PHP.
+A dynamically generated calendar using HTML, CSS, JS, and PHP.
