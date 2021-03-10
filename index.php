@@ -32,7 +32,7 @@
           <label for="monthlist">Month:</label>
           <select id="monthlist" name="m">
             <?php
-              // create loop counter
+              // initialise loop counter
               $i = 1;
 
               // loop through output options
