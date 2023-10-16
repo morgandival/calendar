@@ -1,4 +1,5 @@
 # calendar
+
 A simple calendar.
 
 **Link to project:** https://github.com/morgandival/calendar
@@ -16,3 +17,7 @@ JavaScript then allows the user to click on a day to select it, which with furth
 ## Lessons Learned:
 
 Date manipulation is tricky, but once I got the loops working with the right offsets, the previous month's end days and the next month's start days displayed correctly.
+
+## TODO:
+
+- Fix issue with display of incorrect dates for previous month. ![Alt text](image.png)
